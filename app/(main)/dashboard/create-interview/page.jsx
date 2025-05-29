@@ -6,6 +6,7 @@ import React, { useState } from "react";
 import Form from "./_components/Form";
 import Questions from "./_components/Questions";
 import { toast } from "sonner"
+import InterviewLink from "./_components/InterviewLink";
 
 
 const CreateInterview = () => {
@@ -48,7 +49,7 @@ const CreateInterview = () => {
         <h2 className="font-bold text-xl">Create New Interview</h2>
       </div>
         <Progress value={steps * 33.33} className="my-5"/>
-        {steps === 1 ? <Form onHandleInputChange={handleInputChange} GoToNextStep={() => onGoToNextStep()} formData={formData}/> : steps === 2 ? <Questions formData={formData}/> : null}
+        {steps === 1 ? <Form onHandleInputChange={handleInputChange} GoToNextStep={() => onGoToNextStep()} formData={formData}/> : steps === 2 ? <Questions formData={formData}/> : steps === 3 ? <InterviewLink/> : null}
     </div>
   );
 };
