@@ -5,7 +5,7 @@ import { Loader2 } from "lucide-react";
 import React, { useEffect, useState } from "react";
 import { toast } from "sonner";
 import { v4 as uuidv4 } from "uuid";
-const Questions = ({ formData }) => {
+const Questions = ({ formData, onCreateInterviewLink }) => {
   const [loading, setLoading] = useState(false);
   const [saving, setSaving] = useState(false); 
   const [questions, setQuestions] = useState([]);
@@ -98,6 +98,8 @@ const Questions = ({ formData }) => {
       toast.success("Interview questions saved successfully.");
     }
     setSaving(false);
+
+    onCreateInterviewLink(interview_id);
   };
   
 
@@ -149,12 +151,12 @@ const Questions = ({ formData }) => {
                 <button
                   onClick={onFinish}
                   disabled={saving}
-                  className={`px-6 py-2 bg-purple-600 text-white rounded-lg hover:bg-blue-700 transition cursor-pointer flex items-center gap-2 ${
+                  className={`px-6 py-2 bg-purple-600 text-white rounded-lg hover:bg-purple-500 transition cursor-pointer flex items-center gap-2 ${
                     saving ? "opacity-70 cursor-not-allowed" : ""
                   }`}
                 >
                   {saving && <Loader2 className="w-5 h-5 animate-spin" />}
-                  {saving ? "Saving..." : "Finish"}
+                  {saving ? "Saving..." : "Generate Interview Link"}
                 </button>
               </div>
             </>
