@@ -1,6 +1,6 @@
 import React from 'react';
 import Image from 'next/image';
-import { CopyIcon, MailIcon, LinkedinIcon } from 'lucide-react';
+import { CopyIcon, MailIcon, LinkedinIcon, ChevronLeftIcon, ChevronRightIcon } from 'lucide-react';
 import { FaWhatsapp } from 'react-icons/fa';
 import { toast } from 'sonner';
 
@@ -46,7 +46,7 @@ const InterviewLink = ({ interviewLink }) => {
           type="text"
           value={fullURL}
           readOnly
-          className='border border-gray-300 bg-white h-10 px-5 pr-16 rounded-lg text-sm focus:outline-none w-[300px] text-gray-800'
+          className='border border-gray-300 bg-white h-10 px-5 pr-16 rounded-lg text-sm focus:outline-none w-[400px] text-gray-800'
         />
         <button
           onClick={handleCopy}
@@ -77,16 +77,18 @@ const InterviewLink = ({ interviewLink }) => {
       </div>
 
       {/* Additional buttons */}
-      <div className="mt-8 text-center">
+      <div className="mt-8 flex justify-center items-center gap-10">
         <button
-          className='text-sm bg-purple-500 text-white px-4 py-2 rounded-md cursor-pointer hover:bg-purple-600 transition-all duration-300'
+          className='text-sm bg-purple-500 text-white px-4 py-2 rounded-md cursor-pointer hover:bg-purple-600 transition-all duration-300 flex items-center'
         >
+          <ChevronLeftIcon className='mr-2' />
           Back to Dashboard
         </button>
         <button
-          className='ml-4 text-sm bg-purple-500 text-white px-4 py-2 rounded-md cursor-pointer hover:bg-purple-600 transition-all duration-300'
+          className='text-sm bg-purple-500 text-white px-4 py-2 rounded-md cursor-pointer hover:bg-purple-600 transition-all duration-300 flex items-center'
         >
           Generate Another Link
+          <ChevronRightIcon className='ml-2' />
         </button>
       </div>
     </div>
